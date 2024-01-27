@@ -1,4 +1,5 @@
 class Link < ApplicationRecord
+    has_many :views, dependent: :destroy
     scope :recent_first, -> { order(created_at: :desc)}
     # Ex:- scope :active, -> {where(:active => true)}
     validates :url, presence: true
