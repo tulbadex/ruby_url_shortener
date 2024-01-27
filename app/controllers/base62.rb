@@ -18,8 +18,14 @@ class Base62
     def self.decode(string)
         result = 0
 
-        string.each_char do |char|
-        result = result * BASE + ALPHABET.index(char)
+        # string.each_char do |char|
+        #     result = result * BASE + ALPHABET.index(char)
+        # end
+
+        string.reverse.each_char.with_index do |char, index|
+            power = BASE**index
+            index = ALPHABET.index(char)
+            result += index * power
         end
 
         result
