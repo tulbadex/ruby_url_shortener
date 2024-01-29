@@ -7,7 +7,12 @@ class Link < ApplicationRecord
     def self.find(id)
         super Base62.decode(id)
     end
+
     def to_param
         Base62.encode(id)
+    end
+
+    def domain
+        URI(url).host rescue URI::InvalidURIError
     end
 end
