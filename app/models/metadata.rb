@@ -16,7 +16,7 @@ class Metadata
     def attributes
         {
             title: title,
-            descripton: description,
+            description: description,
             image: image
         }
     end

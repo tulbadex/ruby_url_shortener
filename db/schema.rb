@@ -17,9 +17,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_27_091539) do
   create_table "links", force: :cascade do |t|
     t.string "url"
     t.string "title"
-    t.string "descripton"
+    t.string "description"
     t.string "image"
-    t.integer "views_count"
+    t.integer "views_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
