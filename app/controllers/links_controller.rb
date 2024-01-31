@@ -18,7 +18,15 @@ class LinksController < ApplicationController
     def create
         @link = Link.new(link_params)
         if @link.save
-            redirect_to root_path, notice: "Link successfully created"
+            # redirect_to root_path, notice: "Link successfully created"
+            respond_to do |format|
+                format.html { redirect_to root_path, notice: "Link successfully created" }
+                format.turbo_stream { render turbo_stream: turbo_stream.prepend("links", @link)}
+                # format.turbo_stream { render turbo_stream: [
+                #     turbo_stream.prepend("links", @link),
+                #     turbo_stream.replace("link_form", partial: "links/form", locals: {link: Link.new})
+                # ] }
+            end
         else
             index
             # or 
