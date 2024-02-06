@@ -1,4 +1,5 @@
 class Link < ApplicationRecord
+    belongs_to :user, optional: true
     has_many :views, dependent: :destroy
     scope :recent_first, -> { order(created_at: :desc)}
     # Ex:- scope :active, -> {where(:active => true)}
@@ -18,5 +19,13 @@ class Link < ApplicationRecord
 
     def domain
         URI(url).host rescue URI::InvalidURIError
+    end
+
+    # return false if no user_id on link
+    # return boolean if user.id matches user_id on link
+    def editable_by?(user)
+        # return false unless user_id?
+        # user_id == user&.id
+        user_id? && (user_id == user&.id)
     end
 end
