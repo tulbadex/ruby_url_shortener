@@ -10,7 +10,11 @@ class Link < ApplicationRecord
     end
 
     def self.find(id)
-        super Base62.decode(id)
+        super (id.is_a?(Integer) ? id : Base62.decode(id))
+    end
+
+    def self.find_by_short_code(code)
+        find Base62.decode(code)
     end
 
     def to_param

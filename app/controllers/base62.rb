@@ -1,5 +1,6 @@
 class Base62
     ALPHABET = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".freeze
+    # ALPHABET_HASH = ALPHABET.each_char.with_index.inject({}) { |h, (k, v)| h[k] = v; h }
     BASE = ALPHABET.length
     
     def self.encode(number)

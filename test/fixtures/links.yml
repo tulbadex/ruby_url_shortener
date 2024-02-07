@@ -1,15 +1,24 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+anonymous:
+  url: https://x.com
+  title: X
+  description: Communication and friend zone
+  image: 
+  views_count: 1
+
 one:
-  url: MyString
-  title: MyString
-  description: MyString
-  image: MyString
+  user: one
+  url: https://x.com
+  title: X
+  description: Communication and friend zone
+  image: 
   views_count: 1
 
 two:
-  url: MyString
-  title: MyString
-  description: MyString
-  image: MyString
+  user: two
+  url: https://google.com
+  title: Google
+  description: Search Engine
+  image: 
   views_count: 1
