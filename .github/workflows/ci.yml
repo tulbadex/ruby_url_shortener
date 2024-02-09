@@ -20,7 +20,7 @@ jobs:
         ports: ["5432:5432"]
 
     steps:
-      - uses: action/checkout@4
+      - uses: actions/checkout@4
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with: 
